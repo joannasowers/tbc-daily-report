@@ -22,79 +22,83 @@
 
   .main{padding:20px 24px 40px;max-width:1100px;margin:0 auto;}
 
-  /* tabs */
   .tabs{display:flex;gap:4px;background:rgba(255,255,255,0.06);border-radius:10px;padding:4px;width:fit-content;margin-bottom:20px;}
   .tab{padding:6px 18px;border-radius:7px;font-size:12px;font-weight:600;cursor:pointer;color:rgba(255,255,255,0.45);border:none;background:transparent;letter-spacing:0.02em;transition:all 0.15s;}
   .tab.active{background:var(--white);color:var(--navy);}
 
-  /* section */
-  .section{margin-bottom:16px;}
+  .section{margin-bottom:14px;}
   .section-label{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
-  .dot{width:7px;height:7px;border-radius:50%;}
+  .dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
   .sname{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);}
-  .snote{font-size:10px;color:rgba(255,255,255,0.25);font-style:italic;margin-left:auto;}
-  hr.div{border:none;border-top:1px solid rgba(255,255,255,0.07);margin:4px 0 14px;}
+  .snote{font-size:10px;color:rgba(255,255,255,0.22);font-style:italic;margin-left:auto;}
+  hr.div{border:none;border-top:1px solid rgba(255,255,255,0.07);margin:4px 0 12px;}
 
-  /* stat cards */
   .cards{display:grid;gap:8px;}
   .c4{grid-template-columns:repeat(4,1fr);}
   .c3{grid-template-columns:repeat(3,1fr);}
   .c2{grid-template-columns:repeat(2,1fr);}
-  .card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 16px;border-left:3px solid var(--accent,var(--alt));transition:border-color 0.15s;}
-  .card:hover{border-color:rgba(255,255,255,0.2);}
+  .card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 16px;border-left:3px solid var(--accent,var(--alt));}
   .clabel{font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:rgba(255,255,255,0.32);margin-bottom:6px;}
   .cval{font-family:'Inter Tight',sans-serif;font-size:24px;font-weight:700;line-height:1;margin-bottom:4px;}
   .csub{font-size:10px;color:rgba(255,255,255,0.3);}
   .badge{display:inline-block;font-size:9px;font-weight:600;padding:2px 7px;border-radius:20px;margin-top:3px;}
   .bg{background:var(--gbg);color:var(--green);}
   .ab{background:var(--abg);color:var(--amber);}
-  .pb{background:var(--pbg);color:var(--purple);}
 
-  /* product table */
-  .prod-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:6px;}
+  .prod-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:4px;}
   .prod-table th{background:rgba(255,255,255,0.08);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:rgba(255,255,255,0.4);padding:7px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .prod-table th.num,.prod-table td.num{text-align:right;}
   .prod-table td{padding:7px 12px;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,255,255,0.85);}
   .prod-table tr:last-child td{border-bottom:none;}
   .prod-table tr.total-row td{font-weight:700;color:var(--white);border-top:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.04);}
-  .prod-table td.num{text-align:right;}
-  .prod-table td.highlight{color:var(--alt);font-weight:600;}
+  .prod-table td.hi{color:var(--alt);font-weight:600;}
 
-  /* roas bar */
-  .roas-bar{background:linear-gradient(135deg,rgba(18,46,77,0.9),rgba(38,84,110,0.7));border:1px solid rgba(97,168,194,0.25);border-radius:12px;padding:18px 24px;display:grid;grid-template-columns:repeat(4,1fr);}
-  .ri{text-align:center;border-right:1px solid rgba(255,255,255,0.08);padding:0 16px;}
-  .ri:first-child{padding-left:0;}
-  .ri:last-child{border-right:none;}
+  .roas-bar{background:linear-gradient(135deg,rgba(18,46,77,0.9),rgba(38,84,110,0.7));border:1px solid rgba(97,168,194,0.25);border-radius:12px;padding:16px 20px;display:grid;grid-template-columns:repeat(4,1fr);}
+  .ri{text-align:center;border-right:1px solid rgba(255,255,255,0.08);padding:0 14px;}
+  .ri:first-child{padding-left:0;}.ri:last-child{border-right:none;}
   .rlabel{font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--alt);margin-bottom:5px;}
-  .rval{font-family:'Inter Tight',sans-serif;font-size:26px;font-weight:800;line-height:1;}
+  .rval{font-family:'Inter Tight',sans-serif;font-size:24px;font-weight:800;line-height:1;}
   .rval.hl{color:var(--red);}
   .rsub{font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;}
 
-  /* event window table */
-  .event-section{margin-top:16px;}
-  .event-section-hdr{font-size:10px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:10px;display:flex;align-items:center;gap:8px;}
-  .event-section-hdr::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.07);}
-  .event-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:10px;margin-bottom:8px;overflow:hidden;}
-  .event-hdr{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.07);}
-  .event-name{font-size:12px;font-weight:700;color:var(--white);}
-  .event-date{font-size:11px;color:var(--alt);font-weight:500;}
-  .event-rev{font-family:'Inter Tight',sans-serif;font-size:18px;font-weight:800;color:var(--white);}
-  .event-meta{font-size:10px;color:rgba(255,255,255,0.35);margin-left:8px;}
-  .event-body{padding:10px 16px;}
-  .event-products{display:flex;flex-wrap:wrap;gap:6px;}
-  .prod-chip{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:5px 10px;font-size:11px;}
-  .prod-chip .pname{color:rgba(255,255,255,0.5);font-size:10px;margin-bottom:2px;}
-  .prod-chip .pval{color:var(--white);font-weight:600;}
-  .prod-chip .pguests{color:var(--alt);font-size:10px;}
-  .no-events{font-size:12px;color:rgba(255,255,255,0.3);font-style:italic;padding:12px 0;}
+  /* event cards */
+  .evt-grid{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
+  .evt{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07);border-radius:10px;overflow:hidden;}
+  .evt-hdr{display:flex;align-items:center;justify-content:space-between;padding:9px 14px;background:rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.06);}
+  .evt-left{display:flex;flex-direction:column;gap:2px;}
+  .evt-name{font-size:12px;font-weight:700;color:var(--white);}
+  .evt-date{font-size:10px;color:var(--alt);font-weight:500;}
+  .evt-right{display:flex;align-items:baseline;gap:6px;}
+  .evt-rev{font-family:'Inter Tight',sans-serif;font-size:17px;font-weight:800;}
+  .evt-meta{font-size:10px;color:rgba(255,255,255,0.3);}
+  .evt-body{padding:8px 14px;}
+  .chips{display:flex;flex-wrap:wrap;gap:5px;}
+  .chip{background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.09);border-radius:6px;padding:4px 9px;font-size:11px;}
+  .chip .cn{color:rgba(255,255,255,0.45);font-size:10px;margin-bottom:1px;}
+  .chip .cv{color:var(--white);font-weight:600;}
+  .chip .cg{color:var(--alt);font-size:10px;}
 
-  .attr-note{background:rgba(97,168,194,0.07);border:1px solid rgba(97,168,194,0.15);border-radius:8px;padding:12px 16px;font-size:10px;color:rgba(255,255,255,0.35);line-height:1.6;margin-top:16px;}
-  .attr-note strong{color:rgba(255,255,255,0.55);}
+  /* 30-day summary table */
+  .fwd-table{width:100%;border-collapse:collapse;font-size:12px;}
+  .fwd-table th{background:rgba(255,255,255,0.08);font-size:10px;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;color:rgba(255,255,255,0.4);padding:7px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .fwd-table td{padding:7px 12px;border-bottom:1px solid rgba(255,255,255,0.05);color:rgba(255,255,255,0.85);font-size:11px;}
+  .fwd-table tr:last-child td{border-bottom:none;}
+  .fwd-table td.rev{font-family:'Inter Tight',sans-serif;font-weight:700;color:var(--white);}
+  .fwd-table td.dim{color:rgba(255,255,255,0.4);font-size:10px;}
+  .fwd-table tr.wk-total{background:rgba(97,168,194,0.08);}
+  .fwd-table tr.wk-total td{font-weight:600;color:var(--alt);border-top:1px solid rgba(97,168,194,0.2);}
+  .fwd-table tr.grand-total td{font-weight:700;color:var(--white);background:rgba(255,255,255,0.06);border-top:1px solid rgba(255,255,255,0.15);}
 
-  @media(max-width:768px){.c4,.c3{grid-template-columns:repeat(2,1fr);}.roas-bar{grid-template-columns:repeat(2,1fr);gap:12px;}.ri{border-right:none;}.main{padding:12px;}}
-  @media print{body{background:white;color:#111;}.topbar{background:#122E4D;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.card{background:#F2F2F2;border-color:#DDD;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.cval,.event-rev,.rval{color:#122E4D;}.roas-bar{background:#122E4D;-webkit-print-color-adjust:exact;print-color-adjust:exact;}.tabs{display:none;}.prod-table th{background:#E5E7EB;color:#374151;}.prod-table td{color:#111;}}
+  @media(max-width:768px){
+    .c4,.c3{grid-template-columns:repeat(2,1fr);}
+    .roas-bar{grid-template-columns:repeat(2,1fr);gap:10px;}
+    .ri{border-right:none;}
+    .main{padding:12px;}
+  }
 </style>
 </head>
 <body>
+
 <div class="topbar">
   <div style="display:flex;align-items:center;">
     <span class="wordmark">Tailgate Beach Club</span>
@@ -107,285 +111,282 @@
   <div class="tabs">
     <button class="tab active" onclick="show('wtd',this)">Week to Date</button>
     <button class="tab" onclick="show('mtd',this)">Month to Date</button>
-    <button class="tab" onclick="show('fwd',this)">Next 7 Days</button>
+    <button class="tab" onclick="show('fwd7',this)">Next 7 Days</button>
+    <button class="tab" onclick="show('fwd30',this)">Next 30 Days</button>
   </div>
 
-  <!-- ══════════ WTD ══════════ -->
+  <!-- ══ WTD ══ -->
   <div id="wtd">
-
-    <!-- UrVenue bookings -->
     <div class="section">
-      <div class="section-label"><div class="dot" style="background:#61A8C2"></div><span class="sname">UrVenue — Bookings & Headcount</span><span class="snote">Blank owner/user · JT Ford · Joanna Sowers = digital</span></div>
+      <div class="section-label"><div class="dot" style="background:#61A8C2"></div><span class="sname">UrVenue — Bookings & Headcount</span></div>
       <div class="cards c4">
-        <div class="card" style="--accent:#61A8C2"><div class="clabel">Revenue</div><div class="cval">$21,000</div><div class="csub">Jun 2–8 · digital-attributed</div><span class="badge bg">SCF live</span></div>
-        <div class="card" style="--accent:#61A8C2"><div class="clabel">Bookings</div><div class="cval">92</div><div class="csub">confirmed reservations</div></div>
-        <div class="card" style="--accent:#61A8C2"><div class="clabel">Guests / Headcount</div><div class="cval">388</div><div class="csub">individuals brought in digitally</div></div>
-        <div class="card" style="--accent:#61A8C2"><div class="clabel">Avg Booking Value</div><div class="cval">$228</div><div class="csub">per reservation</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Revenue</div><div class="cval">$20,925</div><div class="csub">Jun 2–9 · digital</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Bookings</div><div class="cval">91</div><div class="csub">confirmed reservations</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Guests</div><div class="cval">385</div><div class="csub">individuals brought in</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Avg Booking</div><div class="cval">$230</div><div class="csub">per reservation</div></div>
       </div>
     </div>
-
-    <!-- Product breakdown -->
     <div class="section">
-      <div class="section-label"><div class="dot" style="background:#61A8C2"></div><span class="sname">What Digital Booked — Week to Date</span></div>
+      <div class="section-label"><div class="dot" style="background:#26546E"></div><span class="sname">What Digital Booked — Week to Date</span></div>
       <table class="prod-table">
-        <thead><tr><th>Product</th><th class="num">Units Booked</th><th class="num">Guests</th><th class="num">Revenue</th><th class="num">Avg per Unit</th></tr></thead>
+        <thead><tr><th>Product</th><th class="num">Units</th><th class="num">Guests</th><th class="num">Revenue</th><th class="num">Avg / Unit</th></tr></thead>
         <tbody>
-          <tr><td class="highlight">VIP Cabanas</td><td class="num">8</td><td class="num">90</td><td class="num">$10,500</td><td class="num">$1,312</td></tr>
-          <tr><td class="highlight">Bungalows</td><td class="num">1</td><td class="num">4</td><td class="num">$1,000</td><td class="num">$1,000</td></tr>
+          <tr><td class="hi">VIP Cabanas</td><td class="num">8</td><td class="num">90</td><td class="num">$10,500</td><td class="num">$1,312</td></tr>
+          <tr><td class="hi">Bungalows</td><td class="num">1</td><td class="num">4</td><td class="num">$1,000</td><td class="num">$1,000</td></tr>
           <tr><td>Daybeds</td><td class="num">1</td><td class="num">4</td><td class="num">$700</td><td class="num">$700</td></tr>
           <tr><td>VIP Couches</td><td class="num">49</td><td class="num">236</td><td class="num">$6,290</td><td class="num">$128</td></tr>
           <tr><td>Lounge Chairs</td><td class="num">8</td><td class="num">15</td><td class="num">$995</td><td class="num">$124</td></tr>
-          <tr><td>GA Tickets</td><td class="num">25</td><td class="num">39</td><td class="num">$1,515</td><td class="num">$61</td></tr>
-          <tr class="total-row"><td>TOTAL</td><td class="num">92</td><td class="num">388</td><td class="num">$21,000</td><td class="num">$228</td></tr>
+          <tr><td>GA Tickets</td><td class="num">24</td><td class="num">36</td><td class="num">$1,440</td><td class="num">$60</td></tr>
+          <tr class="total-row"><td>TOTAL</td><td class="num">91</td><td class="num">385</td><td class="num">$20,925</td><td class="num">$230</td></tr>
         </tbody>
       </table>
     </div>
-
     <hr class="div">
-
-    <!-- Meta -->
     <div class="section">
       <div class="section-label"><div class="dot" style="background:#ED6154"></div><span class="sname">Meta Ads — Purchases</span></div>
       <div class="cards c3">
-        <div class="card" style="--accent:#ED6154"><div class="clabel">Purchases</div><div class="cval">166</div><div class="csub">pixel-confirmed bookings</div><span class="badge bg">SCF $5.68 CPA</span></div>
-        <div class="card" style="--accent:#ED6154"><div class="clabel">Spend</div><div class="cval">$6,207</div><div class="csub">Jun 1–8 · 8 active campaigns</div></div>
-        <div class="card" style="--accent:#ED6154"><div class="clabel">Blended CPA</div><div class="cval">$37.39</div><div class="csub">cost per purchase</div><span class="badge ab">under $22 cap on SCF + UFC</span></div>
+        <div class="card" style="--accent:#ED6154"><div class="clabel">Purchases</div><div class="cval">385</div><div class="csub">Jun 1–9 · pixel-confirmed</div><span class="badge bg">under $22 cap</span></div>
+        <div class="card" style="--accent:#ED6154"><div class="clabel">Spend</div><div class="cval">$7,541</div><div class="csub">Jun 1–9 · 11 active campaigns</div></div>
+        <div class="card" style="--accent:#ED6154"><div class="clabel">Blended CPA</div><div class="cval">$19.59</div><div class="csub">cost per purchase</div></div>
       </div>
     </div>
-
     <hr class="div">
-
-    <!-- Google -->
     <div class="section">
-      <div class="section-label"><div class="dot" style="background:#26546E"></div><span class="sname">Google Ads — Conversions</span><span class="snote">⚠ UrVenue pixel pending</span></div>
+      <div class="section-label"><div class="dot" style="background:#26546E"></div><span class="sname">Google Ads</span><span class="snote">⚠ pixel pending on booketing.com</span></div>
       <div class="cards c3">
         <div class="card" style="--accent:#26546E"><div class="clabel">Purchases</div><div class="cval">—</div><div class="csub">pixel install pending</div><span class="badge ab">June priority</span></div>
-        <div class="card" style="--accent:#26546E"><div class="clabel">Clicks to Site</div><div class="cval">548</div><div class="csub">high-intent visitors WTD</div></div>
-        <div class="card" style="--accent:#26546E"><div class="clabel">Spend</div><div class="cval">$1,604</div><div class="csub">4 active campaigns</div></div>
+        <div class="card" style="--accent:#26546E"><div class="clabel">Clicks</div><div class="cval">2,988</div><div class="csub">MTD high-intent visitors</div></div>
+        <div class="card" style="--accent:#26546E"><div class="clabel">Spend</div><div class="cval">$3,102</div><div class="csub">MTD · 3 active campaigns</div></div>
       </div>
     </div>
-
     <hr class="div">
-
-    <!-- ROAS -->
     <div class="roas-bar">
-      <div class="ri"><div class="rlabel">UrVenue Revenue</div><div class="rval">$21,000</div><div class="rsub">digital-attributed</div></div>
-      <div class="ri"><div class="rlabel">Total Paid Spend</div><div class="rval">$7,811</div><div class="rsub">Meta + Google</div></div>
-      <div class="ri"><div class="rlabel">ROAS</div><div class="rval hl">2.7x</div><div class="rsub">revenue / spend</div></div>
-      <div class="ri"><div class="rlabel">Best CPA</div><div class="rval">$5.68</div><div class="rsub">Stanley Cup Finals</div></div>
+      <div class="ri"><div class="rlabel">UrVenue Revenue</div><div class="rval">$20,925</div><div class="rsub">digital · WTD</div></div>
+      <div class="ri"><div class="rlabel">Paid Spend</div><div class="rval">$10,643</div><div class="rsub">Meta + Google · MTD</div></div>
+      <div class="ri"><div class="rlabel">ROAS</div><div class="rval hl">2.0x</div><div class="rsub">WTD rev / MTD spend</div></div>
+      <div class="ri"><div class="rlabel">Meta CPA</div><div class="rval">$19.59</div><div class="rsub">blended · Jun 1–9</div></div>
     </div>
   </div>
 
-  <!-- ══════════ MTD ══════════ -->
+  <!-- ══ MTD ══ -->
   <div id="mtd" style="display:none">
-
     <div class="section">
-      <div class="section-label"><div class="dot" style="background:#61A8C2"></div><span class="sname">UrVenue — Bookings & Headcount</span><span class="snote">Blank owner/user · JT Ford · Joanna Sowers = digital</span></div>
+      <div class="section-label"><div class="dot" style="background:#61A8C2"></div><span class="sname">UrVenue — Bookings & Headcount</span></div>
       <div class="cards c4">
-        <div class="card" style="--accent:#61A8C2"><div class="clabel">Revenue</div><div class="cval">$54,414</div><div class="csub">June 2026 to date</div><span class="badge bg">growing daily</span></div>
-        <div class="card" style="--accent:#61A8C2"><div class="clabel">Bookings</div><div class="cval">172</div><div class="csub">confirmed reservations</div></div>
-        <div class="card" style="--accent:#61A8C2"><div class="clabel">Guests / Headcount</div><div class="cval">818</div><div class="csub">individuals brought in digitally</div></div>
-        <div class="card" style="--accent:#61A8C2"><div class="clabel">Avg Booking Value</div><div class="cval">$316</div><div class="csub">per reservation</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Revenue</div><div class="cval">$20,925</div><div class="csub">Jun 1–9 · digital</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Bookings</div><div class="cval">91</div><div class="csub">confirmed reservations</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Guests</div><div class="cval">385</div><div class="csub">individuals brought in</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Avg Booking</div><div class="cval">$230</div><div class="csub">per reservation</div></div>
       </div>
     </div>
-
     <div class="section">
-      <div class="section-label"><div class="dot" style="background:#61A8C2"></div><span class="sname">What Digital Booked — Month to Date</span></div>
+      <div class="section-label"><div class="dot" style="background:#26546E"></div><span class="sname">What Digital Booked — Month to Date</span></div>
       <table class="prod-table">
-        <thead><tr><th>Product</th><th class="num">Units Booked</th><th class="num">Guests</th><th class="num">Revenue</th><th class="num">Avg per Unit</th></tr></thead>
+        <thead><tr><th>Product</th><th class="num">Units</th><th class="num">Guests</th><th class="num">Revenue</th><th class="num">Avg / Unit</th></tr></thead>
         <tbody>
-          <tr><td class="highlight">VIP Cabanas</td><td class="num">8</td><td class="num">90</td><td class="num">$10,500</td><td class="num">$1,312</td></tr>
-          <tr><td class="highlight">Bungalows</td><td class="num">1</td><td class="num">4</td><td class="num">$1,000</td><td class="num">$1,000</td></tr>
+          <tr><td class="hi">VIP Cabanas</td><td class="num">8</td><td class="num">90</td><td class="num">$10,500</td><td class="num">$1,312</td></tr>
+          <tr><td class="hi">Bungalows</td><td class="num">1</td><td class="num">4</td><td class="num">$1,000</td><td class="num">$1,000</td></tr>
           <tr><td>Daybeds</td><td class="num">1</td><td class="num">4</td><td class="num">$700</td><td class="num">$700</td></tr>
           <tr><td>VIP Couches</td><td class="num">49</td><td class="num">236</td><td class="num">$6,290</td><td class="num">$128</td></tr>
           <tr><td>Lounge Chairs</td><td class="num">8</td><td class="num">15</td><td class="num">$995</td><td class="num">$124</td></tr>
-          <tr><td>GA Tickets</td><td class="num">25</td><td class="num">39</td><td class="num">$1,515</td><td class="num">$61</td></tr>
-          <tr class="total-row"><td>TOTAL</td><td class="num">92</td><td class="num">388</td><td class="num">$21,000</td><td class="num">$228</td></tr>
+          <tr><td>GA Tickets</td><td class="num">24</td><td class="num">36</td><td class="num">$1,440</td><td class="num">$60</td></tr>
+          <tr class="total-row"><td>TOTAL</td><td class="num">91</td><td class="num">385</td><td class="num">$20,925</td><td class="num">$230</td></tr>
         </tbody>
       </table>
     </div>
-
     <hr class="div">
-
     <div class="section">
       <div class="section-label"><div class="dot" style="background:#ED6154"></div><span class="sname">Meta Ads — Purchases</span></div>
       <div class="cards c3">
-        <div class="card" style="--accent:#ED6154"><div class="clabel">Purchases</div><div class="cval">346</div><div class="csub">pixel-confirmed bookings</div></div>
-        <div class="card" style="--accent:#ED6154"><div class="clabel">Spend</div><div class="cval">$6,207</div><div class="csub">month to date</div></div>
-        <div class="card" style="--accent:#ED6154"><div class="clabel">Blended CPA</div><div class="cval">$17.94</div><div class="csub">cost per purchase</div><span class="badge bg">under $22 cap</span></div>
+        <div class="card" style="--accent:#ED6154"><div class="clabel">Purchases</div><div class="cval">385</div><div class="csub">Jun 1–9 · pixel-confirmed</div><span class="badge bg">under $22 cap</span></div>
+        <div class="card" style="--accent:#ED6154"><div class="clabel">Spend</div><div class="cval">$7,541</div><div class="csub">month to date</div></div>
+        <div class="card" style="--accent:#ED6154"><div class="clabel">Blended CPA</div><div class="cval">$19.59</div><div class="csub">cost per purchase</div></div>
       </div>
     </div>
-
     <hr class="div">
-
     <div class="section">
-      <div class="section-label"><div class="dot" style="background:#26546E"></div><span class="sname">Google Ads — Conversions</span><span class="snote">⚠ pixel pending</span></div>
+      <div class="section-label"><div class="dot" style="background:#26546E"></div><span class="sname">Google Ads</span><span class="snote">⚠ pixel pending</span></div>
       <div class="cards c3">
         <div class="card" style="--accent:#26546E"><div class="clabel">Purchases</div><div class="cval">—</div><div class="csub">pixel install pending</div><span class="badge ab">June priority</span></div>
-        <div class="card" style="--accent:#26546E"><div class="clabel">Clicks to Site</div><div class="cval">1,175</div><div class="csub">MTD high-intent visitors</div></div>
-        <div class="card" style="--accent:#26546E"><div class="clabel">Spend</div><div class="cval">$3,441</div><div class="csub">month to date</div></div>
+        <div class="card" style="--accent:#26546E"><div class="clabel">Clicks</div><div class="cval">2,988</div><div class="csub">MTD high-intent</div></div>
+        <div class="card" style="--accent:#26546E"><div class="clabel">Spend</div><div class="cval">$3,102</div><div class="csub">month to date</div></div>
       </div>
     </div>
-
     <hr class="div">
-
     <div class="roas-bar">
-      <div class="ri"><div class="rlabel">UrVenue Revenue</div><div class="rval">$54,414</div><div class="rsub">digital-attributed</div></div>
-      <div class="ri"><div class="rlabel">Total Paid Spend</div><div class="rval">$9,648</div><div class="rsub">Meta + Google</div></div>
-      <div class="ri"><div class="rlabel">ROAS</div><div class="rval hl">5.6x</div><div class="rsub">revenue / spend</div></div>
-      <div class="ri"><div class="rlabel">Best CPA</div><div class="rval">$5.68</div><div class="rsub">Stanley Cup Finals</div></div>
+      <div class="ri"><div class="rlabel">UrVenue Revenue</div><div class="rval">$20,925</div><div class="rsub">digital · MTD</div></div>
+      <div class="ri"><div class="rlabel">Paid Spend</div><div class="rval">$10,643</div><div class="rsub">Meta + Google</div></div>
+      <div class="ri"><div class="rlabel">ROAS</div><div class="rval hl">2.0x</div><div class="rsub">revenue / spend</div></div>
+      <div class="ri"><div class="rlabel">Meta CPA</div><div class="rval">$19.59</div><div class="rsub">blended · MTD</div></div>
     </div>
   </div>
 
-  <!-- ══════════ NEXT 7 DAYS ══════════ -->
-  <div id="fwd" style="display:none">
-
+  <!-- ══ NEXT 7 DAYS ══ -->
+  <div id="fwd7" style="display:none">
     <div class="section">
-      <div class="section-label"><div class="dot" style="background:#9C27B0"></div><span class="sname">UrVenue — Revenue Already Booked · Jun 9–15</span><span class="snote">Confirmed digital bookings for upcoming events</span></div>
+      <div class="section-label"><div class="dot" style="background:#61A8C2"></div><span class="sname">Revenue Already Booked — Jun 10–16</span></div>
       <div class="cards c3">
-        <div class="card" style="--accent:#9C27B0"><div class="clabel">Revenue Locked In</div><div class="cval">$15,484</div><div class="csub">digital-attributed · already paid</div></div>
-        <div class="card" style="--accent:#9C27B0"><div class="clabel">Bookings</div><div class="cval">41</div><div class="csub">confirmed reservations</div></div>
-        <div class="card" style="--accent:#9C27B0"><div class="clabel">Guests</div><div class="cval">243</div><div class="csub">headcount already secured</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Revenue Locked In</div><div class="cval">$18,844</div><div class="csub">confirmed · already paid</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Bookings</div><div class="cval">52</div><div class="csub">confirmed reservations</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Guests</div><div class="cval">305</div><div class="csub">headcount secured</div></div>
       </div>
     </div>
+    <div class="evt-grid">
 
-    <div class="event-section">
-      <div class="event-section-hdr">Events · Jun 9–15</div>
-
-      <!-- Jun 11: Cup Final -->
-      <div class="event-card">
-        <div class="event-hdr">
-          <div><div class="event-name">CUP FINAL WATCH PARTY | VEGAS VS. CAROLINA</div><div class="event-date">Thursday, June 11</div></div>
-          <div style="text-align:right"><div class="event-rev">$50</div><span class="event-meta">2 bookings · 11 guests</span></div>
+      <div class="evt">
+        <div class="evt-hdr">
+          <div class="evt-left"><div class="evt-name">VGK CUP FINAL WATCH PARTY | VEGAS VS. CAROLINA</div><div class="evt-date">Thursday, June 11</div></div>
+          <div class="evt-right"><div class="evt-rev">$50</div><span class="evt-meta">2 bookings · 11 guests</span></div>
         </div>
-        <div class="event-body">
-          <div class="event-products">
-            <div class="prod-chip"><div class="pname">VIP Couches</div><div class="pval">2 units</div><div class="pguests">11 guests · $25 avg</div></div>
-          </div>
-        </div>
+        <div class="evt-body"><div class="chips">
+          <div class="chip"><div class="cn">VIP Couches</div><div class="cv">2 units</div><div class="cg">11 guests · $25 avg</div></div>
+        </div></div>
       </div>
 
-      <!-- Jun 11: World Soccer / FC26 -->
-      <div class="event-card">
-        <div class="event-hdr">
-          <div><div class="event-name">WORLD SOCCER VIEWING PARTY & FC 26 TOURNAMENT</div><div class="event-date">Thursday, June 11</div></div>
-          <div style="text-align:right"><div class="event-rev">$1,980</div><span class="event-meta">7 bookings · 34 guests</span></div>
+      <div class="evt">
+        <div class="evt-hdr">
+          <div class="evt-left"><div class="evt-name">WORLD SOCCER VIEWING PARTY & FC 26 TOURNAMENT</div><div class="evt-date">Thursday, June 11</div></div>
+          <div class="evt-right"><div class="evt-rev">$1,980</div><span class="evt-meta">7 bookings · 34 guests</span></div>
         </div>
-        <div class="event-body">
-          <div class="event-products">
-            <div class="prod-chip"><div class="pname">VIP Couches</div><div class="pval">5 units</div><div class="pguests">31 guests · $375 avg</div></div>
-            <div class="prod-chip"><div class="pname">GA Tickets</div><div class="pval">2 units</div><div class="pguests">3 guests · $52 avg</div></div>
-          </div>
-        </div>
+        <div class="evt-body"><div class="chips">
+          <div class="chip"><div class="cn">VIP Couches</div><div class="cv">5 units</div><div class="cg">31 guests · $375 avg</div></div>
+          <div class="chip"><div class="cn">GA Tickets</div><div class="cv">2 units</div><div class="cg">3 guests · $52 avg</div></div>
+        </div></div>
       </div>
 
-      <!-- Jun 12: World Soccer Watch Party -->
-      <div class="event-card">
-        <div class="event-hdr">
-          <div><div class="event-name">WORLD SOCCER WATCH PARTY</div><div class="event-date">Friday, June 12</div></div>
-          <div style="text-align:right"><div class="event-rev">$1,875</div><span class="event-meta">3 bookings · 19 guests</span></div>
+      <div class="evt">
+        <div class="evt-hdr">
+          <div class="evt-left"><div class="evt-name">WORLD SOCCER WATCH PARTY</div><div class="evt-date">Friday, June 12</div></div>
+          <div class="evt-right"><div class="evt-rev">$2,425</div><span class="evt-meta">5 bookings · 31 guests</span></div>
         </div>
-        <div class="event-body">
-          <div class="event-products">
-            <div class="prod-chip"><div class="pname">VIP Cabanas</div><div class="pval">1 unit</div><div class="pguests">12 guests · $1,500</div></div>
-            <div class="prod-chip"><div class="pname">VIP Couches</div><div class="pval">1 unit</div><div class="pguests">5 guests · $325</div></div>
-            <div class="prod-chip"><div class="pname">GA Tickets</div><div class="pval">1 unit</div><div class="pguests">2 guests · $50</div></div>
-          </div>
-        </div>
+        <div class="evt-body"><div class="chips">
+          <div class="chip"><div class="cn">VIP Cabanas</div><div class="cv">1 unit</div><div class="cg">12 guests · $1,500</div></div>
+          <div class="chip"><div class="cn">VIP Couches</div><div class="cv">2 units</div><div class="cg">15 guests · $412 avg</div></div>
+          <div class="chip"><div class="cn">Lounge Chairs</div><div class="cv">1 unit</div><div class="cg">2 guests · $50</div></div>
+          <div class="chip"><div class="cn">GA Tickets</div><div class="cv">1 unit</div><div class="cg">2 guests · $50</div></div>
+        </div></div>
       </div>
 
-      <!-- Jun 12: USA vs Paraguay -->
-      <div class="event-card">
-        <div class="event-hdr">
-          <div><div class="event-name">WORLD SOCCER WATCH PARTY | USA VS. PARAGUAY</div><div class="event-date">Friday, June 12</div></div>
-          <div style="text-align:right"><div class="event-rev">$20</div><span class="event-meta">1 booking · 5 guests</span></div>
+      <div class="evt">
+        <div class="evt-hdr">
+          <div class="evt-left"><div class="evt-name">WORLD SOCCER WATCH PARTY | USA VS. PARAGUAY</div><div class="evt-date">Friday, June 12</div></div>
+          <div class="evt-right"><div class="evt-rev">$80</div><span class="evt-meta">3 bookings · 17 guests</span></div>
         </div>
-        <div class="event-body">
-          <div class="event-products">
-            <div class="prod-chip"><div class="pname">VIP Couches</div><div class="pval">1 unit</div><div class="pguests">5 guests · $20</div></div>
-          </div>
-        </div>
+        <div class="evt-body"><div class="chips">
+          <div class="chip"><div class="cn">VIP Couches</div><div class="cv">3 units</div><div class="cg">17 guests · $27 avg</div></div>
+        </div></div>
       </div>
 
-      <!-- Jun 13: NBA Finals -->
-      <div class="event-card">
-        <div class="event-hdr">
-          <div><div class="event-name">NBA FINALS WATCH PARTY | SPURS VS. KNICKS</div><div class="event-date">Saturday, June 13</div></div>
-          <div style="text-align:right"><div class="event-rev">$100</div><span class="event-meta">4 bookings · 20 guests</span></div>
+      <div class="evt">
+        <div class="evt-hdr">
+          <div class="evt-left"><div class="evt-name">NBA FINALS WATCH PARTY | SPURS VS. KNICKS</div><div class="evt-date">Saturday, June 13</div></div>
+          <div class="evt-right"><div class="evt-rev">$130</div><span class="evt-meta">5 bookings · 26 guests</span></div>
         </div>
-        <div class="event-body">
-          <div class="event-products">
-            <div class="prod-chip"><div class="pname">VIP Couches</div><div class="pval">4 units</div><div class="pguests">20 guests · $25 avg</div></div>
-          </div>
-        </div>
+        <div class="evt-body"><div class="chips">
+          <div class="chip"><div class="cn">VIP Couches</div><div class="cv">5 units</div><div class="cg">26 guests · $26 avg</div></div>
+        </div></div>
       </div>
 
-      <!-- Jun 13: World Soccer Watch Party -->
-      <div class="event-card">
-        <div class="event-hdr">
-          <div><div class="event-name">WORLD SOCCER WATCH PARTY</div><div class="event-date">Saturday, June 13</div></div>
-          <div style="text-align:right"><div class="event-rev">$8,955</div><span class="event-meta">10 bookings · 71 guests</span></div>
+      <div class="evt">
+        <div class="evt-hdr">
+          <div class="evt-left"><div class="evt-name">WORLD SOCCER WATCH PARTY</div><div class="evt-date">Saturday, June 13</div></div>
+          <div class="evt-right"><div class="evt-rev">$11,675</div><span class="evt-meta">16 bookings · 103 guests</span></div>
         </div>
-        <div class="event-body">
-          <div class="event-products">
-            <div class="prod-chip"><div class="pname">Bungalows</div><div class="pval">1 unit</div><div class="pguests">20 guests · $5,000</div></div>
-            <div class="prod-chip"><div class="pname">VIP Cabanas</div><div class="pval">1 unit</div><div class="pguests">12 guests · $1,500</div></div>
-            <div class="prod-chip"><div class="pname">VIP Couches</div><div class="pval">4 units</div><div class="pguests">31 guests · $550 avg</div></div>
-            <div class="prod-chip"><div class="pname">Lounge Chairs</div><div class="pval">1 unit</div><div class="pguests">2 guests · $25</div></div>
-            <div class="prod-chip"><div class="pname">GA Tickets</div><div class="pval">3 units</div><div class="pguests">6 guests · $77 avg</div></div>
-          </div>
-        </div>
+        <div class="evt-body"><div class="chips">
+          <div class="chip"><div class="cn">Bungalows</div><div class="cv">1 unit</div><div class="cg">20 guests · $5,000</div></div>
+          <div class="chip"><div class="cn">VIP Cabanas</div><div class="cv">3 units</div><div class="cg">36 guests · $1,333 avg</div></div>
+          <div class="chip"><div class="cn">VIP Couches</div><div class="cv">4 units</div><div class="cg">31 guests · $550 avg</div></div>
+          <div class="chip"><div class="cn">Lounge Chairs</div><div class="cv">3 units</div><div class="cg">8 guests · $58 avg</div></div>
+          <div class="chip"><div class="cn">GA Tickets</div><div class="cv">5 units</div><div class="cg">8 guests · $60 avg</div></div>
+        </div></div>
       </div>
 
-      <!-- Jun 14: UFC -->
-      <div class="event-card">
-        <div class="event-hdr">
-          <div><div class="event-name">UFC FREEDOM 250 VIEWING PARTY</div><div class="event-date">Sunday, June 14</div></div>
-          <div style="text-align:right"><div class="event-rev">$2,279</div><span class="event-meta">11 bookings · 78 guests</span></div>
+      <div class="evt">
+        <div class="evt-hdr">
+          <div class="evt-left"><div class="evt-name">UFC FREEDOM 250 VIEWING PARTY</div><div class="evt-date">Sunday, June 14</div></div>
+          <div class="evt-right"><div class="evt-rev">$2,279</div><span class="evt-meta">11 bookings · 78 guests</span></div>
         </div>
-        <div class="event-body">
-          <div class="event-products">
-            <div class="prod-chip"><div class="pname">VIP Cabanas</div><div class="pval">5 units</div><div class="pguests">60 guests · $201 avg</div></div>
-            <div class="prod-chip"><div class="pname">VIP Couches</div><div class="pval">3 units</div><div class="pguests">12 guests · $325 avg</div></div>
-            <div class="prod-chip"><div class="pname">Lounge Chairs</div><div class="pval">2 units</div><div class="pguests">4 guests · $100 avg</div></div>
-            <div class="prod-chip"><div class="pname">GA Tickets</div><div class="pval">1 unit</div><div class="pguests">2 guests · $100</div></div>
-          </div>
-        </div>
+        <div class="evt-body"><div class="chips">
+          <div class="chip"><div class="cn">VIP Cabanas</div><div class="cv">5 units</div><div class="cg">60 guests · $201 avg</div></div>
+          <div class="chip"><div class="cn">VIP Couches</div><div class="cv">3 units</div><div class="cg">12 guests · $325 avg</div></div>
+          <div class="chip"><div class="cn">Lounge Chairs</div><div class="cv">2 units</div><div class="cg">4 guests · $100 avg</div></div>
+          <div class="chip"><div class="cn">GA Tickets</div><div class="cv">1 unit</div><div class="cg">2 guests · $100</div></div>
+        </div></div>
       </div>
 
-      <!-- Jun 14: World Soccer Viewing Party -->
-      <div class="event-card">
-        <div class="event-hdr">
-          <div><div class="event-name">WORLD SOCCER VIEWING PARTY</div><div class="event-date">Sunday, June 14</div></div>
-          <div style="text-align:right"><div class="event-rev">$225</div><span class="event-meta">3 bookings · 5 guests</span></div>
+      <div class="evt">
+        <div class="evt-hdr">
+          <div class="evt-left"><div class="evt-name">WORLD SOCCER VIEWING PARTY</div><div class="evt-date">Sunday, June 14</div></div>
+          <div class="evt-right"><div class="evt-rev">$225</div><span class="evt-meta">3 bookings · 5 guests</span></div>
         </div>
-        <div class="event-body">
-          <div class="event-products">
-            <div class="prod-chip"><div class="pname">Lounge Chairs</div><div class="pval">2 units</div><div class="pguests">4 guests · $100 avg</div></div>
-            <div class="prod-chip"><div class="pname">GA Tickets</div><div class="pval">1 unit</div><div class="pguests">1 guest · $25</div></div>
-          </div>
-        </div>
+        <div class="evt-body"><div class="chips">
+          <div class="chip"><div class="cn">Lounge Chairs</div><div class="cv">2 units</div><div class="cg">4 guests · $100 avg</div></div>
+          <div class="chip"><div class="cn">GA Tickets</div><div class="cv">1 unit</div><div class="cg">1 guest · $25</div></div>
+        </div></div>
       </div>
 
-      <!-- 7-day total -->
-      <div style="background:rgba(155,33,176,0.12);border:1px solid rgba(155,33,176,0.25);border-radius:10px;padding:14px 18px;margin-top:8px;display:flex;justify-content:space-between;align-items:center;">
-        <span style="font-size:12px;font-weight:700;color:rgba(255,255,255,0.6);letter-spacing:0.05em;text-transform:uppercase;">7-Day Total · Jun 9–15</span>
-        <div style="display:flex;gap:24px;align-items:center;">
-          <div style="text-align:right"><div style="font-size:10px;color:rgba(255,255,255,0.35);">Revenue</div><div style="font-family:'Inter Tight',sans-serif;font-size:20px;font-weight:800;">$15,484</div></div>
-          <div style="text-align:right"><div style="font-size:10px;color:rgba(255,255,255,0.35);">Bookings</div><div style="font-family:'Inter Tight',sans-serif;font-size:20px;font-weight:800;">41</div></div>
-          <div style="text-align:right"><div style="font-size:10px;color:rgba(255,255,255,0.35);">Guests</div><div style="font-family:'Inter Tight',sans-serif;font-size:20px;font-weight:800;">243</div></div>
+      <div style="background:rgba(97,168,194,0.1);border:1px solid rgba(97,168,194,0.2);border-radius:10px;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:11px;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.06em;">7-Day Total · Jun 10–16</span>
+        <div style="display:flex;gap:20px;">
+          <div style="text-align:right"><div style="font-size:10px;color:rgba(255,255,255,0.3);">Revenue</div><div style="font-family:'Inter Tight',sans-serif;font-size:18px;font-weight:800;">$18,844</div></div>
+          <div style="text-align:right"><div style="font-size:10px;color:rgba(255,255,255,0.3);">Bookings</div><div style="font-family:'Inter Tight',sans-serif;font-size:18px;font-weight:800;">52</div></div>
+          <div style="text-align:right"><div style="font-size:10px;color:rgba(255,255,255,0.3);">Guests</div><div style="font-family:'Inter Tight',sans-serif;font-size:18px;font-weight:800;">305</div></div>
         </div>
       </div>
     </div>
   </div>
 
-  <div class="attr-note"><strong>Attribution:</strong> UrVenue bookings with blank Owner/User, "JT Ford," or "Joanna Sowers" = digital marketing. Walk-ups show "Podium" and are excluded. Meta purchases = pixel-confirmed end-to-end. Google conversions pending UrVenue pixel install on booketing.com.</div>
+  <!-- ══ NEXT 30 DAYS ══ -->
+  <div id="fwd30" style="display:none">
+    <div class="section">
+      <div class="section-label"><div class="dot" style="background:#61A8C2"></div><span class="sname">Revenue Already Booked — Jun 10 – Jul 9</span></div>
+      <div class="cards c3">
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Revenue Locked In</div><div class="cval">$48,074</div><div class="csub">confirmed · already paid</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Bookings</div><div class="cval">114</div><div class="csub">confirmed reservations</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Guests</div><div class="cval">625</div><div class="csub">headcount secured</div></div>
+      </div>
+    </div>
+    <div class="section" style="margin-top:10px;">
+      <table class="fwd-table">
+        <thead><tr><th>Date</th><th>Event</th><th style="text-align:right">Revenue</th><th style="text-align:right">Bkgs</th><th style="text-align:right">Guests</th><th>Products</th></tr></thead>
+        <tbody>
+          <tr><td class="dim">Thu Jun 11</td><td>VGK Cup Final Watch Party</td><td class="rev" style="text-align:right">$50</td><td style="text-align:right">2</td><td style="text-align:right">11</td><td class="dim">2x VIP Couches</td></tr>
+          <tr><td class="dim">Thu Jun 11</td><td>World Soccer & FC 26 Tournament</td><td class="rev" style="text-align:right">$1,980</td><td style="text-align:right">7</td><td style="text-align:right">34</td><td class="dim">5x VIP Couches · 2x GA</td></tr>
+          <tr><td class="dim">Fri Jun 12</td><td>World Soccer Watch Party</td><td class="rev" style="text-align:right">$2,425</td><td style="text-align:right">5</td><td style="text-align:right">31</td><td class="dim">1x Cabana · 2x VIP Couch · 1x Chair · 1x GA</td></tr>
+          <tr><td class="dim">Fri Jun 12</td><td>World Soccer | USA vs. Paraguay</td><td class="rev" style="text-align:right">$80</td><td style="text-align:right">3</td><td style="text-align:right">17</td><td class="dim">3x VIP Couches</td></tr>
+          <tr><td class="dim">Sat Jun 13</td><td>NBA Finals Watch Party</td><td class="rev" style="text-align:right">$130</td><td style="text-align:right">5</td><td style="text-align:right">26</td><td class="dim">5x VIP Couches</td></tr>
+          <tr><td class="dim">Sat Jun 13</td><td>World Soccer Watch Party</td><td class="rev" style="text-align:right">$11,675</td><td style="text-align:right">16</td><td style="text-align:right">103</td><td class="dim">1x Bungalow · 3x Cabana · 4x VIP Couch · 3x Chair · 5x GA</td></tr>
+          <tr><td class="dim">Sun Jun 14</td><td>UFC Freedom 250 Viewing Party</td><td class="rev" style="text-align:right">$2,279</td><td style="text-align:right">11</td><td style="text-align:right">78</td><td class="dim">5x Cabana · 3x VIP Couch · 2x Chair · 1x GA</td></tr>
+          <tr><td class="dim">Sun Jun 14</td><td>World Soccer Viewing Party</td><td class="rev" style="text-align:right">$225</td><td style="text-align:right">3</td><td style="text-align:right">5</td><td class="dim">2x Chair · 1x GA</td></tr>
+          <tr class="wk-total"><td colspan="2">Week 1 Subtotal (Jun 10–16)</td><td style="text-align:right">$18,844</td><td style="text-align:right">52</td><td style="text-align:right">305</td><td></td></tr>
+          <tr><td class="dim">Thu Jun 18</td><td>World Soccer Viewing Party</td><td class="rev" style="text-align:right">$650</td><td style="text-align:right">2</td><td style="text-align:right">11</td><td class="dim">1x VIP Couch · 1x Chair</td></tr>
+          <tr><td class="dim">Fri Jun 19</td><td>World Soccer | USA vs. Australia</td><td class="rev" style="text-align:right">$4,855</td><td style="text-align:right">18</td><td style="text-align:right">68</td><td class="dim">1x Cabana · 1x Bungalow · 2x VIP Couch · 8x Chair · 6x GA</td></tr>
+          <tr><td class="dim">Sat Jun 20</td><td>World Soccer & U.S. Open Golf</td><td class="rev" style="text-align:right">$6,550</td><td style="text-align:right">4</td><td style="text-align:right">38</td><td class="dim">3x Cabana · 1x GA</td></tr>
+          <tr><td class="dim">Sun Jun 21</td><td>World Soccer & US Open Watch Party</td><td class="rev" style="text-align:right">$100</td><td style="text-align:right">1</td><td style="text-align:right">2</td><td class="dim">1x Chair</td></tr>
+          <tr class="wk-total"><td colspan="2">Week 2 Subtotal (Jun 17–23)</td><td style="text-align:right">$12,155</td><td style="text-align:right">25</td><td style="text-align:right">119</td><td></td></tr>
+          <tr><td class="dim">Thu Jun 25</td><td>World Soccer Watch Party</td><td class="rev" style="text-align:right">$700</td><td style="text-align:right">2</td><td style="text-align:right">12</td><td class="dim">1x VIP Couch · 1x Chair</td></tr>
+          <tr><td class="dim">Fri Jun 26</td><td>World Soccer Viewing Party</td><td class="rev" style="text-align:right">$1,500</td><td style="text-align:right">2</td><td style="text-align:right">22</td><td class="dim">1x Cabana · 1x VIP Couch</td></tr>
+          <tr><td class="dim">Sat Jun 27</td><td>World Soccer Watch Party</td><td class="rev" style="text-align:right">$3,000</td><td style="text-align:right">12</td><td style="text-align:right">32</td><td class="dim">1x Daybed · 3x VIP Couch · 7x Chair · 1x GA</td></tr>
+          <tr><td class="dim">Sun Jun 28</td><td>World Soccer Round of 32</td><td class="rev" style="text-align:right">$2,080</td><td style="text-align:right">2</td><td style="text-align:right">22</td><td class="dim">1x Bungalow · 1x GA</td></tr>
+          <tr class="wk-total"><td colspan="2">Week 3 Subtotal (Jun 24–30)</td><td style="text-align:right">$7,280</td><td style="text-align:right">18</td><td style="text-align:right">88</td><td></td></tr>
+          <tr><td class="dim">Thu Jul 2</td><td>World Soccer | Knockout Round</td><td class="rev" style="text-align:right">$1,200</td><td style="text-align:right">3</td><td style="text-align:right">14</td><td class="dim">1x VIP Couch · 2x Chair</td></tr>
+          <tr><td class="dim">Fri Jul 3</td><td>World Soccer | Knockout Round</td><td class="rev" style="text-align:right">$4,000</td><td style="text-align:right">6</td><td style="text-align:right">40</td><td class="dim">2x Cabana · 1x Daybed · 2x VIP Couch · 1x Chair</td></tr>
+          <tr><td class="dim">Sat Jul 4</td><td>The Great American Tailgate</td><td class="rev" style="text-align:right">$3,400</td><td style="text-align:right">5</td><td style="text-align:right">38</td><td class="dim">2x Cabana · 1x VIP Couch · 2x Chair</td></tr>
+          <tr><td class="dim">Sun Jul 5</td><td>World Soccer | Round of 16</td><td class="rev" style="text-align:right">$1,025</td><td style="text-align:right">3</td><td style="text-align:right">17</td><td class="dim">2x VIP Couch · 1x Chair</td></tr>
+          <tr><td class="dim">Thu Jul 9</td><td>World Soccer | Quarterfinals</td><td class="rev" style="text-align:right">$170</td><td style="text-align:right">2</td><td style="text-align:right">4</td><td class="dim">1x Chair · 1x GA</td></tr>
+          <tr class="wk-total"><td colspan="2">Week 4 Subtotal (Jul 1–9)</td><td style="text-align:right">$9,795</td><td style="text-align:right">19</td><td style="text-align:right">113</td><td></td></tr>
+          <tr class="grand-total"><td colspan="2">30-Day Total · Jun 10 – Jul 9</td><td style="text-align:right">$48,074</td><td style="text-align:right">114</td><td style="text-align:right">625</td><td></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
 </div>
 
 <script>
   document.getElementById('today-date').textContent = new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-  function show(id, btn) {
-    ['wtd','mtd','fwd'].forEach(p=>document.getElementById(p).style.display='none');
+  function show(id,btn){
+    ['wtd','mtd','fwd7','fwd30'].forEach(p=>document.getElementById(p).style.display='none');
     document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
     document.getElementById(id).style.display='block';
     btn.classList.add('active');
