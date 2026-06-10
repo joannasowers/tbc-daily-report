@@ -85,6 +85,7 @@
   <div class="tabs">
     <button class="tab active" onclick="show('fwd7',this)">Next 7 Days</button>
     <button class="tab" onclick="show('fwd30',this)">Next 30 Days</button>
+    <button class="tab" onclick="show('single',this)">Single Day</button>
     <button class="tab" onclick="show('wtd',this)">DIGITAL WTD</button>
     <button class="tab" onclick="show('mtd',this)">DIGITAL MTD</button>
   </div>
@@ -276,10 +277,164 @@
     </div>
   </div>
 
+  <!-- ══ SINGLE DAY ══ -->
+  <div id="single" style="display:none">
+    <div style="margin-bottom:16px;">
+      <div class="section-label"><div class="dot" style="background:#ED6154"></div><span class="sname">Single Day View</span></div>
+      <select id="day-select" onchange="renderDay(this.value)" style="font-family:Inter,sans-serif;font-size:13px;font-weight:600;padding:10px 16px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.08);color:#ffffff;width:100%;max-width:380px;cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%228%22 viewBox=%220 0 12 8%22><path d=%22M1 1l5 5 5-5%22 stroke=%22%2361A8C2%22 stroke-width=%222%22 fill=%22none%22/></svg>');background-repeat:no-repeat;background-position:right 14px center;padding-right:36px;">
+        <option value="">— Select a date —</option>
+        <option value="2026-06-11">Thursday, June 11</option>
+<option value="2026-06-12">Friday, June 12</option>
+<option value="2026-06-13">Saturday, June 13</option>
+<option value="2026-06-14">Sunday, June 14</option>
+<option value="2026-06-18">Thursday, June 18</option>
+<option value="2026-06-19">Friday, June 19</option>
+<option value="2026-06-20">Saturday, June 20</option>
+<option value="2026-06-21">Sunday, June 21</option>
+<option value="2026-06-25">Thursday, June 25</option>
+<option value="2026-06-26">Friday, June 26</option>
+<option value="2026-06-27">Saturday, June 27</option>
+<option value="2026-06-28">Sunday, June 28</option>
+<option value="2026-07-02">Thursday, July 2</option>
+<option value="2026-07-03">Friday, July 3</option>
+<option value="2026-07-04">Saturday, July 4</option>
+<option value="2026-07-05">Sunday, July 5</option>
+<option value="2026-07-09">Thursday, July 9</option>
+<option value="2026-07-10">Friday, July 10</option>
+<option value="2026-07-11">Saturday, July 11</option>
+<option value="2026-07-19">Sunday, July 19</option>
+<option value="2026-07-24">Friday, July 24</option>
+<option value="2026-07-25">Saturday, July 25</option>
+      </select>
+    </div>
+
+    <div id="day-content" style="display:none">
+
+      <!-- Event header -->
+      <div id="day-event-header" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-left:3px solid #ED6154;border-radius:10px;padding:12px 18px;margin-bottom:16px;">
+        <div id="day-label" style="font-family:Inter Tight,sans-serif;font-size:11px;font-weight:700;color:#61A8C2;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:4px;"></div>
+        <div id="day-events" style="font-size:13px;font-weight:600;color:#ffffff;line-height:1.5;"></div>
+      </div>
+
+      <!-- Row 1: TOTAL (highlighted) -->
+      <div style="margin-bottom:6px;font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);">ALL SOURCES</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
+        <div style="background:rgba(97,168,194,0.15);border:2px solid rgba(97,168,194,0.6);border-radius:12px;padding:18px;text-align:center;box-shadow:0 0 18px rgba(97,168,194,0.12);">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#61A8C2;margin-bottom:8px;">Total Reservations</div>
+          <div id="t-res" style="font-family:Inter Tight,sans-serif;font-size:42px;font-weight:800;color:#ffffff;line-height:1;"></div>
+        </div>
+        <div style="background:rgba(97,168,194,0.15);border:2px solid rgba(97,168,194,0.6);border-radius:12px;padding:18px;text-align:center;box-shadow:0 0 18px rgba(97,168,194,0.12);">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#61A8C2;margin-bottom:8px;">Total Guests</div>
+          <div id="t-guests" style="font-family:Inter Tight,sans-serif;font-size:42px;font-weight:800;color:#ffffff;line-height:1;"></div>
+        </div>
+        <div style="background:rgba(237,97,84,0.15);border:2px solid rgba(237,97,84,0.5);border-radius:12px;padding:18px;text-align:center;box-shadow:0 0 18px rgba(237,97,84,0.1);">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:#ED6154;margin-bottom:8px;">Total Revenue</div>
+          <div id="t-rev" style="font-family:Inter Tight,sans-serif;font-size:42px;font-weight:800;color:#ffffff;line-height:1;"></div>
+        </div>
+      </div>
+
+      <!-- Row 2: DIGITAL -->
+      <div style="margin-bottom:6px;font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);">DIGITAL</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;text-align:center;">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px;">Reservations</div>
+          <div id="d-res" style="font-family:Inter Tight,sans-serif;font-size:32px;font-weight:700;color:#ffffff;line-height:1;"></div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;text-align:center;">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px;">Guests</div>
+          <div id="d-guests" style="font-family:Inter Tight,sans-serif;font-size:32px;font-weight:700;color:#ffffff;line-height:1;"></div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;text-align:center;">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px;">Revenue</div>
+          <div id="d-rev" style="font-family:Inter Tight,sans-serif;font-size:32px;font-weight:700;color:#ffffff;line-height:1;"></div>
+        </div>
+      </div>
+
+      <!-- Row 3: HOST/PROMOTER/VIP -->
+      <div style="margin-bottom:6px;font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);">HOST / PROMOTER / VIP</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px;">
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;text-align:center;">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px;">Reservations</div>
+          <div id="h-res" style="font-family:Inter Tight,sans-serif;font-size:32px;font-weight:700;color:#ffffff;line-height:1;"></div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;text-align:center;">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px;">Guests</div>
+          <div id="h-guests" style="font-family:Inter Tight,sans-serif;font-size:32px;font-weight:700;color:#ffffff;line-height:1;"></div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px;text-align:center;">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px;">Revenue</div>
+          <div id="h-rev" style="font-family:Inter Tight,sans-serif;font-size:32px;font-weight:700;color:#ffffff;line-height:1;"></div>
+        </div>
+      </div>
+
+      <!-- Row 4: Products -->
+      <div style="margin-bottom:6px;font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.3);">PRODUCTS — TOTAL CONFIRMED GUESTS</div>
+      <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;">
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 10px;text-align:center;">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px;">Cabanas</div>
+          <div id="p-cabanas" style="font-family:Inter Tight,sans-serif;font-size:28px;font-weight:800;color:#61A8C2;line-height:1;"></div>
+          <div id="p-cabanas-bkgs" style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;"></div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 10px;text-align:center;">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px;">Bungalows</div>
+          <div id="p-bungalows" style="font-family:Inter Tight,sans-serif;font-size:28px;font-weight:800;color:#61A8C2;line-height:1;"></div>
+          <div id="p-bungalows-bkgs" style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;"></div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 10px;text-align:center;">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px;">Couches</div>
+          <div id="p-couches" style="font-family:Inter Tight,sans-serif;font-size:28px;font-weight:800;color:#61A8C2;line-height:1;"></div>
+          <div id="p-couches-bkgs" style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;"></div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 10px;text-align:center;">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px;">Chairs</div>
+          <div id="p-chairs" style="font-family:Inter Tight,sans-serif;font-size:28px;font-weight:800;color:#61A8C2;line-height:1;"></div>
+          <div id="p-chairs-bkgs" style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;"></div>
+        </div>
+        <div style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:14px 10px;text-align:center;">
+          <div style="font-size:9px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-bottom:6px;">GA</div>
+          <div id="p-ga" style="font-family:Inter Tight,sans-serif;font-size:28px;font-weight:800;color:#61A8C2;line-height:1;"></div>
+          <div id="p-ga-bkgs" style="font-size:10px;color:rgba(255,255,255,0.3);margin-top:4px;"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </div>
 <script>
   document.getElementById('today-date').textContent=new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
-  function show(id,btn){['fwd7','fwd30','wtd','mtd'].forEach(p=>document.getElementById(p).style.display='none');document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById(id).style.display='block';btn.classList.add('active');}
+  function show(id,btn){['fwd7','fwd30','single','wtd','mtd'].forEach(p=>document.getElementById(p).style.display='none');document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById(id).style.display='block';btn.classList.add('active');}
+
+  const DAYS = {"2026-06-11":{"label":"Thursday, June 11","tot_res":15,"tot_guests":73,"tot_rev":2607,"dig_res":12,"dig_guests":52,"dig_rev":2205,"events":[{"name":"World Soccer Viewing Party & FC 26 Tournament","guests":62},{"name":"VGK Cup Final Watch Party","guests":11}],"products":{"ga":{"bkgs":2,"guests":3},"chairs":{"bkgs":3,"guests":7},"couches":{"bkgs":7,"guests":42},"cabanas":{"bkgs":1,"guests":4},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":2,"guests":3},"chairs":{"bkgs":3,"guests":7},"couches":{"bkgs":7,"guests":42},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}}},"2026-06-12":{"label":"Friday, June 12","tot_res":9,"tot_guests":53,"tot_rev":2525,"dig_res":9,"dig_guests":53,"dig_rev":2525,"events":[{"name":"World Soccer Watch Party","guests":31},{"name":"World Soccer Watch Party | USA vs. Paraguay","guests":22}],"products":{"ga":{"bkgs":1,"guests":2},"chairs":{"bkgs":1,"guests":2},"couches":{"bkgs":6,"guests":37},"cabanas":{"bkgs":1,"guests":12},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":1,"guests":2},"chairs":{"bkgs":1,"guests":2},"couches":{"bkgs":6,"guests":37},"cabanas":{"bkgs":1,"guests":12},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}}},"2026-06-13":{"label":"Saturday, June 13","tot_res":34,"tot_guests":212,"tot_rev":19456,"dig_res":29,"dig_guests":155,"dig_rev":12555,"events":[{"name":"World Soccer Watch Party","guests":163},{"name":"NBA Finals Watch Party | Spurs vs. Knicks","guests":49}],"products":{"ga":{"bkgs":7,"guests":10},"chairs":{"bkgs":5,"guests":10},"couches":{"bkgs":14,"guests":82},"cabanas":{"bkgs":4,"guests":48},"bungalows":{"bkgs":2,"guests":40},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":7,"guests":10},"chairs":{"bkgs":5,"guests":10},"couches":{"bkgs":13,"guests":79},"cabanas":{"bkgs":3,"guests":36},"bungalows":{"bkgs":1,"guests":20},"daybeds":{"bkgs":0,"guests":0}}},"2026-06-14":{"label":"Sunday, June 14","tot_res":17,"tot_guests":151,"tot_rev":16004,"dig_res":14,"dig_guests":83,"dig_rev":2504,"events":[{"name":"World Soccer Viewing Party","guests":71},{"name":"UFC Freedom 250 Viewing Party","guests":80}],"products":{"ga":{"bkgs":2,"guests":3},"chairs":{"bkgs":4,"guests":8},"couches":{"bkgs":3,"guests":12},"cabanas":{"bkgs":6,"guests":100},"bungalows":{"bkgs":1,"guests":20},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":2,"guests":3},"chairs":{"bkgs":4,"guests":8},"couches":{"bkgs":3,"guests":12},"cabanas":{"bkgs":5,"guests":60},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}}},"2026-06-18":{"label":"Thursday, June 18","tot_res":3,"tot_guests":91,"tot_rev":10650,"dig_res":2,"dig_guests":11,"dig_rev":650,"events":[{"name":"World Soccer Viewing Party","guests":91}],"products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":1,"guests":3},"couches":{"bkgs":1,"guests":8},"cabanas":{"bkgs":1,"guests":80},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":1,"guests":3},"couches":{"bkgs":1,"guests":8},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}}},"2026-06-19":{"label":"Friday, June 19","tot_res":20,"tot_guests":84,"tot_rev":5755,"dig_res":19,"dig_guests":74,"dig_rev":5255,"events":[{"name":"World Soccer | USA vs. Australia","guests":84}],"products":{"ga":{"bkgs":6,"guests":9},"chairs":{"bkgs":8,"guests":12},"couches":{"bkgs":4,"guests":31},"cabanas":{"bkgs":1,"guests":12},"bungalows":{"bkgs":1,"guests":20},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":6,"guests":9},"chairs":{"bkgs":8,"guests":12},"couches":{"bkgs":3,"guests":21},"cabanas":{"bkgs":1,"guests":12},"bungalows":{"bkgs":1,"guests":20},"daybeds":{"bkgs":0,"guests":0}}},"2026-06-20":{"label":"Saturday, June 20","tot_res":4,"tot_guests":38,"tot_rev":6550,"dig_res":4,"dig_guests":38,"dig_rev":6550,"events":[{"name":"World Soccer & U.S. Open Golf Watch Party","guests":38}],"products":{"ga":{"bkgs":1,"guests":2},"chairs":{"bkgs":0,"guests":0},"couches":{"bkgs":0,"guests":0},"cabanas":{"bkgs":3,"guests":36},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":1,"guests":2},"chairs":{"bkgs":0,"guests":0},"couches":{"bkgs":0,"guests":0},"cabanas":{"bkgs":3,"guests":36},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}}},"2026-06-21":{"label":"Sunday, June 21","tot_res":1,"tot_guests":2,"tot_rev":100,"dig_res":1,"dig_guests":2,"dig_rev":100,"events":[{"name":"World Soccer & US Open Watch Party","guests":2}],"products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":1,"guests":2},"couches":{"bkgs":0,"guests":0},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":1,"guests":2},"couches":{"bkgs":0,"guests":0},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}}},"2026-06-25":{"label":"Thursday, June 25","tot_res":2,"tot_guests":12,"tot_rev":700,"dig_res":2,"dig_guests":12,"dig_rev":700,"events":[{"name":"World Soccer Watch Party","guests":12}],"products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":1,"guests":2},"couches":{"bkgs":1,"guests":10},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":1,"guests":2},"couches":{"bkgs":1,"guests":10},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}}},"2026-06-26":{"label":"Friday, June 26","tot_res":4,"tot_guests":26,"tot_rev":1780,"dig_res":2,"dig_guests":22,"dig_rev":1500,"events":[{"name":"World Soccer Viewing Party","guests":26}],"products":{"ga":{"bkgs":1,"guests":2},"chairs":{"bkgs":1,"guests":2},"couches":{"bkgs":1,"guests":10},"cabanas":{"bkgs":1,"guests":12},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":0,"guests":0},"couches":{"bkgs":1,"guests":10},"cabanas":{"bkgs":1,"guests":12},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}}},"2026-06-27":{"label":"Saturday, June 27","tot_res":14,"tot_guests":54,"tot_rev":6000,"dig_res":12,"dig_guests":32,"dig_rev":3000,"events":[{"name":"World Soccer Watch Party","guests":54}],"products":{"ga":{"bkgs":1,"guests":2},"chairs":{"bkgs":7,"guests":12},"couches":{"bkgs":4,"guests":24},"cabanas":{"bkgs":1,"guests":12},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":1,"guests":4}},"dig_products":{"ga":{"bkgs":1,"guests":2},"chairs":{"bkgs":7,"guests":12},"couches":{"bkgs":3,"guests":14},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":1,"guests":4}}},"2026-06-28":{"label":"Sunday, June 28","tot_res":2,"tot_guests":22,"tot_rev":2080,"dig_res":2,"dig_guests":22,"dig_rev":2080,"events":[{"name":"World Soccer Round of 32","guests":22}],"products":{"ga":{"bkgs":1,"guests":2},"chairs":{"bkgs":0,"guests":0},"couches":{"bkgs":0,"guests":0},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":1,"guests":20},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":1,"guests":2},"chairs":{"bkgs":0,"guests":0},"couches":{"bkgs":0,"guests":0},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":1,"guests":20},"daybeds":{"bkgs":0,"guests":0}}},"2026-07-02":{"label":"Thursday, July 2","tot_res":3,"tot_guests":14,"tot_rev":1200,"dig_res":3,"dig_guests":14,"dig_rev":1200,"events":[{"name":"World Soccer | Knockout Round","guests":14}],"products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":2,"guests":4},"couches":{"bkgs":1,"guests":10},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":2,"guests":4},"couches":{"bkgs":1,"guests":10},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}}},"2026-07-03":{"label":"Friday, July 3","tot_res":6,"tot_guests":40,"tot_rev":4000,"dig_res":6,"dig_guests":40,"dig_rev":4000,"events":[{"name":"World Soccer | Knockout Round","guests":40}],"products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":1,"guests":2},"couches":{"bkgs":2,"guests":10},"cabanas":{"bkgs":2,"guests":24},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":1,"guests":4}},"dig_products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":1,"guests":2},"couches":{"bkgs":2,"guests":10},"cabanas":{"bkgs":2,"guests":24},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":1,"guests":4}}},"2026-07-04":{"label":"Saturday, July 4","tot_res":6,"tot_guests":40,"tot_rev":3600,"dig_res":6,"dig_guests":40,"dig_rev":3600,"events":[{"name":"The Great American Tailgate","guests":40}],"products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":3,"guests":6},"couches":{"bkgs":1,"guests":10},"cabanas":{"bkgs":2,"guests":24},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":3,"guests":6},"couches":{"bkgs":1,"guests":10},"cabanas":{"bkgs":2,"guests":24},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}}},"2026-07-05":{"label":"Sunday, July 5","tot_res":3,"tot_guests":17,"tot_rev":1025,"dig_res":3,"dig_guests":17,"dig_rev":1025,"events":[{"name":"World Soccer | Round of 16","guests":17}],"products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":1,"guests":2},"couches":{"bkgs":2,"guests":15},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":1,"guests":2},"couches":{"bkgs":2,"guests":15},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}}},"2026-07-09":{"label":"Thursday, July 9","tot_res":2,"tot_guests":4,"tot_rev":170,"dig_res":2,"dig_guests":4,"dig_rev":170,"events":[{"name":"World Soccer | Quarterfinals","guests":4}],"products":{"ga":{"bkgs":1,"guests":2},"chairs":{"bkgs":1,"guests":2},"couches":{"bkgs":0,"guests":0},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":1,"guests":2},"chairs":{"bkgs":1,"guests":2},"couches":{"bkgs":0,"guests":0},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}}},"2026-07-10":{"label":"Friday, July 10","tot_res":4,"tot_guests":46,"tot_rev":4000,"dig_res":4,"dig_guests":46,"dig_rev":4000,"events":[{"name":"World Soccer | Quarterfinals","guests":46}],"products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":0,"guests":0},"couches":{"bkgs":1,"guests":10},"cabanas":{"bkgs":3,"guests":36},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":0,"guests":0},"couches":{"bkgs":1,"guests":10},"cabanas":{"bkgs":3,"guests":36},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}}},"2026-07-11":{"label":"Saturday, July 11","tot_res":11,"tot_guests":43,"tot_rev":4225,"dig_res":11,"dig_guests":43,"dig_rev":4225,"events":[{"name":"World Soccer | Quarterfinals","guests":12},{"name":"UFC 329","guests":31}],"products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":6,"guests":14},"couches":{"bkgs":4,"guests":17},"cabanas":{"bkgs":1,"guests":12},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":6,"guests":14},"couches":{"bkgs":4,"guests":17},"cabanas":{"bkgs":1,"guests":12},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}}},"2026-07-19":{"label":"Sunday, July 19","tot_res":14,"tot_guests":82,"tot_rev":7540,"dig_res":12,"dig_guests":66,"dig_rev":5790,"events":[{"name":"World Soccer | Finals","guests":82}],"products":{"ga":{"bkgs":2,"guests":6},"chairs":{"bkgs":5,"guests":10},"couches":{"bkgs":5,"guests":40},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":1,"guests":20},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":2,"guests":6},"chairs":{"bkgs":5,"guests":10},"couches":{"bkgs":4,"guests":30},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":1,"guests":20},"daybeds":{"bkgs":0,"guests":0}}},"2026-07-24":{"label":"Friday, July 24","tot_res":1,"tot_guests":5,"tot_rev":325,"dig_res":1,"dig_guests":5,"dig_rev":325,"events":[{"name":"World Series of Beer Pong","guests":5}],"products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":0,"guests":0},"couches":{"bkgs":1,"guests":5},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":0,"guests":0},"couches":{"bkgs":1,"guests":5},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}}},"2026-07-25":{"label":"Saturday, July 25","tot_res":1,"tot_guests":2,"tot_rev":100,"dig_res":1,"dig_guests":2,"dig_rev":100,"events":[{"name":"World Series of Beer Pong","guests":2}],"products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":1,"guests":2},"couches":{"bkgs":0,"guests":0},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}},"dig_products":{"ga":{"bkgs":0,"guests":0},"chairs":{"bkgs":1,"guests":2},"couches":{"bkgs":0,"guests":0},"cabanas":{"bkgs":0,"guests":0},"bungalows":{"bkgs":0,"guests":0},"daybeds":{"bkgs":0,"guests":0}}}};
+  function renderDay(key) {
+    if (!key) { document.getElementById('day-content').style.display='none'; return; }
+    const d = DAYS[key];
+    if (!d) return;
+    document.getElementById('day-content').style.display='block';
+    document.getElementById('day-label').textContent = d.label;
+    document.getElementById('day-events').innerHTML = d.events.map(e=>e.name+' <span style="color:rgba(255,255,255,0.4);font-size:11px;font-weight:400;">('+e.guests+' guests)</span>').join('<br>');
+    document.getElementById('t-res').textContent = d.tot_res;
+    document.getElementById('t-guests').textContent = d.tot_guests;
+    document.getElementById('t-rev').textContent = '$'+d.tot_rev.toLocaleString();
+    document.getElementById('d-res').textContent = d.dig_res;
+    document.getElementById('d-guests').textContent = d.dig_guests;
+    document.getElementById('d-rev').textContent = '$'+d.dig_rev.toLocaleString();
+    document.getElementById('h-res').textContent = d.tot_res - d.dig_res;
+    document.getElementById('h-guests').textContent = d.tot_guests - d.dig_guests;
+    document.getElementById('h-rev').textContent = '$'+(d.tot_rev - d.dig_rev).toLocaleString();
+    const p = d.products;
+    document.getElementById('p-cabanas').textContent   = p.cabanas.guests;
+    document.getElementById('p-cabanas-bkgs').textContent = p.cabanas.bkgs+' reservation'+(p.cabanas.bkgs!==1?'s':'');
+    document.getElementById('p-bungalows').textContent = p.bungalows.guests;
+    document.getElementById('p-bungalows-bkgs').textContent = p.bungalows.bkgs+' reservation'+(p.bungalows.bkgs!==1?'s':'');
+    document.getElementById('p-couches').textContent   = p.couches.guests;
+    document.getElementById('p-couches-bkgs').textContent = p.couches.bkgs+' reservation'+(p.couches.bkgs!==1?'s':'');
+    document.getElementById('p-chairs').textContent    = p.chairs.guests;
+    document.getElementById('p-chairs-bkgs').textContent = p.chairs.bkgs+' reservation'+(p.chairs.bkgs!==1?'s':'');
+    document.getElementById('p-ga').textContent        = p.ga.guests;
+    document.getElementById('p-ga-bkgs').textContent   = p.ga.bkgs+' reservation'+(p.ga.bkgs!==1?'s':'');
+  }
+
 </script>
 </body>
 </html>
