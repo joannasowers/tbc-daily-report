@@ -50,6 +50,10 @@
   .ft td.rev{font-family:'Inter Tight',sans-serif;font-weight:700;color:var(--white);}
   .ft td.totrev{font-size:10px;color:rgba(255,255,255,0.4);}
   .ft td.prods{font-size:10px;color:rgba(255,255,255,0.4);}
+  .ft th:nth-child(3),.ft td:nth-child(3){background:rgba(97,168,194,0.12);border-left:2px solid rgba(97,168,194,0.4);border-right:1px solid rgba(97,168,194,0.2);color:var(--white);}
+  .ft th:nth-child(6),.ft td:nth-child(6){background:rgba(97,168,194,0.12);border-left:2px solid rgba(97,168,194,0.4);border-right:1px solid rgba(97,168,194,0.2);color:var(--white);}
+  .ft tr.daytot td:nth-child(3),.ft tr.wktot td:nth-child(3),.ft tr.grand td:nth-child(3){background:rgba(97,168,194,0.22);border-left:2px solid rgba(97,168,194,0.6);}
+  .ft tr.daytot td:nth-child(6),.ft tr.wktot td:nth-child(6),.ft tr.grand td:nth-child(6){background:rgba(97,168,194,0.22);border-left:2px solid rgba(97,168,194,0.6);}
   .ft tr.daytot td{background:rgba(97,168,194,0.08);font-weight:600;color:var(--alt);border-top:1px solid rgba(97,168,194,0.15);border-bottom:1px solid rgba(97,168,194,0.15);}
   .ft tr.wktot td{background:rgba(97,168,194,0.12);font-weight:700;color:var(--alt);border-top:1px solid rgba(97,168,194,0.25);border-bottom:1px solid rgba(97,168,194,0.25);}
   .ft tr.grand td{background:rgba(255,255,255,0.07);font-weight:800;color:var(--white);border-top:2px solid rgba(255,255,255,0.2);}
@@ -93,11 +97,11 @@
   ══════════════════════════════════════ -->
   <div id="fwd7">
     <div class="section">
-      <div class="section-label"><div class="dot" style="background:#61A8C2"></div><span class="sname">Reservations Already Booked — Jun 11–17</span><span class="snote">All sources · digital vs. host</span></div>
+      <div class="section-label"><div class="dot" style="background:#61A8C2"></div><span class="sname">Reservations Already Booked — Jun 11–17</span><span class="snote">All sources · digital vs. host / promoter / VIP</span></div>
       <div class="cards c3" style="margin-bottom:10px;">
-        <div class="card" style="--accent:#61A8C2"><div class="clabel">Total Confirmed Reservations</div><div class="cval">75</div><div class="csub">64 digital · 11 host</div></div>
-        <div class="card" style="--accent:#61A8C2"><div class="clabel">Total Confirmed Guests</div><div class="cval">489</div><div class="csub">343 digital · 146 host</div></div>
-        <div class="card" style="--accent:#ED6154"><div class="clabel">Total Revenue Confirmed</div><div class="cval">$40,592</div><div class="csub">$19,789 digital · $20,803 host</div></div>
+        <div class="card" style="--accent:#61A8C2;background:rgba(97,168,194,0.15);border:2px solid rgba(97,168,194,0.6);box-shadow:0 0 16px rgba(97,168,194,0.15);"><div class="clabel" style="color:var(--alt);">Total Confirmed Reservations</div><div class="cval" style="font-size:36px;color:var(--white);">75</div><div class="csub" style="color:rgba(255,255,255,0.5);">64 digital · 11 host / promoter / VIP</div></div>
+        <div class="card" style="--accent:#61A8C2;background:rgba(97,168,194,0.15);border:2px solid rgba(97,168,194,0.6);box-shadow:0 0 16px rgba(97,168,194,0.15);"><div class="clabel" style="color:var(--alt);">Total Confirmed Guests</div><div class="cval" style="font-size:36px;color:var(--white);">489</div><div class="csub" style="color:rgba(255,255,255,0.5);">343 digital · 146 host / promoter / VIP</div></div>
+        <div class="card" style="--accent:#ED6154"><div class="clabel">Total Revenue Confirmed</div><div class="cval">$40,592</div><div class="csub">$19,789 digital · $20,803 host / promoter / VIP</div></div>
       </div>
       <table class="ft">
         <thead>
@@ -106,7 +110,7 @@
             <th>Event</th>
             <th class="r" style="width:70px">Total Res.</th>
             <th class="r" style="width:60px">Digital</th>
-            <th class="r" style="width:50px">Host</th>
+            <th class="r" style="width:110px">HOST<br>PROMOTER<br>VIP</th>
             <th class="r" style="width:80px">Total Guests</th>
             <th class="r" style="width:80px">Dig. Guests</th>
             <th class="r" style="width:90px">Total Rev.</th>
@@ -148,11 +152,11 @@
   ══════════════════════════════════════ -->
   <div id="fwd30" style="display:none">
     <div class="section">
-      <div class="section-label"><div class="dot" style="background:#61A8C2"></div><span class="sname">Reservations Already Booked — Jun 11 – Jul 10</span><span class="snote">All sources · digital vs. host</span></div>
+      <div class="section-label"><div class="dot" style="background:#61A8C2"></div><span class="sname">Reservations Already Booked — Jun 11 – Jul 10</span><span class="snote">All sources · digital vs. host / promoter / VIP</span></div>
       <div class="cards c3" style="margin-bottom:10px;">
-        <div class="card" style="--accent:#61A8C2"><div class="clabel">Total Confirmed Reservations</div><div class="cval">149</div><div class="csub">132 digital · 17 host</div></div>
-        <div class="card" style="--accent:#61A8C2"><div class="clabel">Total Confirmed Guests</div><div class="cval">979</div><div class="csub">717 digital · 262 host</div></div>
-        <div class="card" style="--accent:#ED6154"><div class="clabel">Total Revenue Confirmed</div><div class="cval">$88,202</div><div class="csub">$53,619 digital · $34,583 host</div></div>
+        <div class="card" style="--accent:#61A8C2;background:rgba(97,168,194,0.15);border:2px solid rgba(97,168,194,0.6);box-shadow:0 0 16px rgba(97,168,194,0.15);"><div class="clabel" style="color:var(--alt);">Total Confirmed Reservations</div><div class="cval" style="font-size:36px;color:var(--white);">149</div><div class="csub" style="color:rgba(255,255,255,0.5);">132 digital · 17 host / promoter / VIP</div></div>
+        <div class="card" style="--accent:#61A8C2;background:rgba(97,168,194,0.15);border:2px solid rgba(97,168,194,0.6);box-shadow:0 0 16px rgba(97,168,194,0.15);"><div class="clabel" style="color:var(--alt);">Total Confirmed Guests</div><div class="cval" style="font-size:36px;color:var(--white);">979</div><div class="csub" style="color:rgba(255,255,255,0.5);">717 digital · 262 host / promoter / VIP</div></div>
+        <div class="card" style="--accent:#ED6154"><div class="clabel">Total Revenue Confirmed</div><div class="cval">$88,202</div><div class="csub">$53,619 digital · $34,583 host / promoter / VIP</div></div>
       </div>
       <table class="ft">
         <thead>
@@ -161,7 +165,7 @@
             <th>Event</th>
             <th class="r" style="width:70px">Total Res.</th>
             <th class="r" style="width:60px">Digital</th>
-            <th class="r" style="width:50px">Host</th>
+            <th class="r" style="width:110px">HOST<br>PROMOTER<br>VIP</th>
             <th class="r" style="width:80px">Total Guests</th>
             <th class="r" style="width:80px">Dig. Guests</th>
             <th class="r" style="width:90px">Total Rev.</th>
