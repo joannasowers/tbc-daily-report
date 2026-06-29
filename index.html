@@ -286,7 +286,7 @@
 <option value="2026-06-26">Friday, June 26</option>
 <option value="2026-06-27">Saturday, June 27</option>
 <option value="2026-06-28">Sunday, June 28</option>
-<option value="2026-06-29">Monday, June 29</option>
+<option value="2026-06-29" selected>Monday, June 29</option>
 <option value="2026-06-30">Tuesday, June 30</option>
 <option value="2026-07-01">Wednesday, July 1</option>
 <option value="2026-07-02">Thursday, July 2</option>
@@ -316,6 +316,7 @@
       <div id="day-label" style="font-family:Inter Tight,sans-serif;font-size:11px;font-weight:700;color:#61A8C2;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:12px;"></div>
       <div id="day-events"></div>
     </div>
+    <script>document.addEventListener("DOMContentLoaded",function(){var s=document.getElementById("day-select");if(s&&typeof renderDay==="function"){s.value="2026-06-29";renderDay("2026-06-29");}});</script>
   </div>
 
 </div>
