@@ -86,8 +86,8 @@
     <button class="tab active" onclick="show('single',this)">Single Day</button>
     <button class="tab" onclick="show('fwd7',this)">Next 7 Days</button>
     <button class="tab" onclick="show('fwd30',this)">Next 30 Days</button>
-    <button class="tab" onclick="show('wtd',this)">DIGITAL WTD</button>
-    <button class="tab" onclick="show('mtd',this)">DIGITAL MTD</button>
+    <button class="tab" onclick="show('wtd',this)">WTD</button>
+    <button class="tab" onclick="show('mtd',this)">MTD</button>
   </div>
 
               <!-- NEXT 7 DAYS -->
@@ -154,6 +154,11 @@
   <!-- WTD -->
   <div id="wtd" style="display:none">
     <div class="closed-note">Today is Monday June 29 — venue is closed (open Thu–Sun). WTD shows the trailing 7 days, Jun 23–29.</div>
+    <div style="display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;">
+      <button onclick="repView('wtd','full',this)" style="font-family:Inter,sans-serif;font-size:13px;font-weight:700;padding:9px 20px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);cursor:pointer;background:#61A8C2;color:#0c2138;">Full Report</button>
+      <button onclick="repView('wtd','digital',this)" style="font-family:Inter,sans-serif;font-size:13px;font-weight:700;padding:9px 20px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);cursor:pointer;background:rgba(255,255,255,0.08);color:#ffffff;">Digital Report</button>
+    </div>
+    <div id="wtd-digital" style="display:none">
     <div class="section">
       <div class="section-label"><div class="dot" style="background:#61A8C2"></div><span class="sname">UrVenue — Digital Bookings</span></div>
       <div class="cards c4">
@@ -206,10 +211,43 @@
       <div class="ri"><div class="rl">ROAS</div><div class="rv hl">2.6x</div><div class="rs">WTD rev / all paid spend</div></div>
       <div class="ri"><div class="rl">Meta CPA</div><div class="rv">$23.59</div><div class="rs">Meta · WTD</div></div>
     </div>
+    </div>
+    <div id="wtd-full">
+    <div class="section">
+      <div class="section-label"><div class="dot" style="background:#61A8C2"></div><span class="sname">UrVenue — All Bookings</span></div>
+      <div class="cards c4">
+        <div class="card" style="--accent:#ED6154"><div class="clabel">Total Revenue</div><div class="cval">$63,189</div><div class="csub">Jun 23–29 · all sources</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Total Reservations</div><div class="cval">521</div><div class="csub">all sources</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Total Guests</div><div class="cval">1,571</div><div class="csub">individuals · all sources</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Avg Booking</div><div class="cval">$121</div><div class="csub">per reservation</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label"><div class="dot" style="background:#26546E"></div><span class="sname">Revenue by Source</span></div>
+      <div class="cards c2">
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Digital</div><div class="cval">$32,595</div><div class="csub">52% of revenue · 369 res · 1,070 guests</div></div>
+        <div class="card" style="--accent:#26546E"><div class="clabel">Host / Promoter / VIP</div><div class="cval">$30,594</div><div class="csub">48% of revenue · 152 res · 501 guests</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label"><div class="dot" style="background:#ED6154"></div><span class="sname">What the Venue Booked — Week to Date</span></div>
+      <table class="pt">
+        <thead><tr><th>Product</th><th class="r">Units</th><th class="r">Guests</th><th class="r">Revenue</th><th class="r">Avg / Unit</th></tr></thead>
+        <tbody>
+          <tr><td class="hi">VIP Cabanas</td><td class="r">21</td><td class="r">211</td><td class="r">$17,750</td><td class="r">$845</td></tr><tr><td class="hi">Bungalows</td><td class="r">2</td><td class="r">36</td><td class="r">$4,000</td><td class="r">$2,000</td></tr><tr><td class="hi">Daybeds</td><td class="r">1</td><td class="r">4</td><td class="r">$700</td><td class="r">$700</td></tr><tr><td class="hi">VIP Couches</td><td class="r">25</td><td class="r">163</td><td class="r">$10,500</td><td class="r">$420</td></tr><tr><td class="hi">Lounge Chairs</td><td class="r">71</td><td class="r">138</td><td class="r">$4,025</td><td class="r">$57</td></tr><tr><td class="hi">GA Tickets</td><td class="r">256</td><td class="r">586</td><td class="r">$1,350</td><td class="r">$5</td></tr><tr class="tot"><td>TOTAL</td><td class="r">521</td><td class="r">1571</td><td class="r">$63,189</td><td class="r">$121</td></tr>
+        </tbody>
+      </table>
+    </div>
+    </div>
   </div>
   <!-- MTD -->
   <div id="mtd" style="display:none">
     <div class="closed-note">Today is Monday June 29 — venue is closed (open Thu–Sun). MTD reflects Jun 1–29.</div>
+    <div style="display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap;">
+      <button onclick="repView('mtd','full',this)" style="font-family:Inter,sans-serif;font-size:13px;font-weight:700;padding:9px 20px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);cursor:pointer;background:#61A8C2;color:#0c2138;">Full Report</button>
+      <button onclick="repView('mtd','digital',this)" style="font-family:Inter,sans-serif;font-size:13px;font-weight:700;padding:9px 20px;border-radius:8px;border:1px solid rgba(255,255,255,0.15);cursor:pointer;background:rgba(255,255,255,0.08);color:#ffffff;">Digital Report</button>
+    </div>
+    <div id="mtd-digital" style="display:none">
     <div class="section">
       <div class="section-label"><div class="dot" style="background:#61A8C2"></div><span class="sname">UrVenue — Digital Bookings</span></div>
       <div class="cards c4">
@@ -261,6 +299,34 @@
       <div class="ri"><div class="rl">Paid Spend</div><div class="rv">$31,651.01</div><div class="rs">Meta + Google + TikTok</div></div>
       <div class="ri"><div class="rl">ROAS</div><div class="rv hl">4.3x</div><div class="rs">MTD rev / all paid spend</div></div>
       <div class="ri"><div class="rl">Meta CPA</div><div class="rv">$23.59</div><div class="rs">blended MTD CPA</div></div>
+    </div>
+    </div>
+    <div id="mtd-full">
+    <div class="section">
+      <div class="section-label"><div class="dot" style="background:#61A8C2"></div><span class="sname">UrVenue — All Bookings</span></div>
+      <div class="cards c4">
+        <div class="card" style="--accent:#ED6154"><div class="clabel">Total Revenue</div><div class="cval">$293,202</div><div class="csub">Jun 1–29 · all sources</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Total Reservations</div><div class="cval">3,149</div><div class="csub">all sources</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Total Guests</div><div class="cval">9,627</div><div class="csub">individuals · all sources</div></div>
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Avg Booking</div><div class="cval">$93</div><div class="csub">per reservation</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label"><div class="dot" style="background:#26546E"></div><span class="sname">Revenue by Source</span></div>
+      <div class="cards c2">
+        <div class="card" style="--accent:#61A8C2"><div class="clabel">Digital</div><div class="cval">$134,530</div><div class="csub">46% of revenue · 2,517 res · 6,904 guests</div></div>
+        <div class="card" style="--accent:#26546E"><div class="clabel">Host / Promoter / VIP</div><div class="cval">$158,672</div><div class="csub">54% of revenue · 632 res · 2,723 guests</div></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="section-label"><div class="dot" style="background:#ED6154"></div><span class="sname">What the Venue Booked — Month to Date</span></div>
+      <table class="pt">
+        <thead><tr><th>Product</th><th class="r">Units</th><th class="r">Guests</th><th class="r">Revenue</th><th class="r">Avg / Unit</th></tr></thead>
+        <tbody>
+          <tr><td class="hi">VIP Cabanas</td><td class="r">77</td><td class="r">889</td><td class="r">$84,005</td><td class="r">$1,091</td></tr><tr><td class="hi">Bungalows</td><td class="r">13</td><td class="r">173</td><td class="r">$21,500</td><td class="r">$1,654</td></tr><tr><td class="hi">Daybeds</td><td class="r">2</td><td class="r">8</td><td class="r">$1,400</td><td class="r">$700</td></tr><tr><td class="hi">VIP Couches</td><td class="r">166</td><td class="r">924</td><td class="r">$43,446</td><td class="r">$262</td></tr><tr><td class="hi">Lounge Chairs</td><td class="r">574</td><td class="r">1175</td><td class="r">$12,390</td><td class="r">$22</td></tr><tr><td class="hi">GA Tickets</td><td class="r">1722</td><td class="r">4147</td><td class="r">$12,395</td><td class="r">$7</td></tr><tr class="tot"><td>TOTAL</td><td class="r">3149</td><td class="r">9627</td><td class="r">$293,202</td><td class="r">$93</td></tr>
+        </tbody>
+      </table>
+    </div>
     </div>
   </div>
   <!-- ══ SINGLE DAY ══ -->
@@ -320,6 +386,12 @@
   </div>
 
 </div>
+<script>
+function repView(p,m,btn){
+  ['full','digital'].forEach(function(x){var el=document.getElementById(p+'-'+x);if(el)el.style.display=(x===m)?'block':'none';});
+  if(btn&&btn.parentNode){var bs=btn.parentNode.children;for(var i=0;i<bs.length;i++){var on=bs[i]===btn;bs[i].style.background=on?'#61A8C2':'rgba(255,255,255,0.08)';bs[i].style.color=on?'#0c2138':'#ffffff';}}
+}
+</script>
 <script>
   document.getElementById('today-date').textContent=new Date().toLocaleDateString('en-US',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
   function show(id,btn){['single','fwd7','fwd30','wtd','mtd'].forEach(p=>document.getElementById(p).style.display='none');document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));document.getElementById(id).style.display='block';btn.classList.add('active');}
